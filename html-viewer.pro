@@ -7,7 +7,7 @@
 # this needs to stay in sync with the Makefile
 VERSION = 1.0.1
 
-QT       += network webkit
+QT       += core widgets gui webengine webenginewidgets 
 
 TARGET = html-viewer
 TEMPLATE = app

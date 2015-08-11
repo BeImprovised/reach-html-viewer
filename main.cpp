@@ -4,7 +4,6 @@
 #include <QDebug>
 #include <QDir>
 #include <QUrl>
-#include <QWSServer>
 
 #include "mainview.h"
 #include "systemdefs.h"
@@ -46,27 +45,6 @@ int main(int argc, char **argv)
     settings.beginGroup(SYSTEM_SETTINGS_SECTION);
     MainView viewer;
 
-    QUrl url(settings.value("main_view").toString());
-    viewer.setUrl(url);
-    qDebug() << "loading url: " << settings.value("main_view").toString();
-
-    if (settings.value("full_screen",false).toBool()) {
-        viewer.showFullScreen();
-    }
-
-    if (settings.value("hide_cursor",false).toBool()) {
-        viewer.setCursor(QCursor(Qt::BlankCursor));
-#ifdef Q_WS_QWS
-    QWSServer::setCursorVisible(false);
-#endif
-    }
-
-    viewer.setScrollbars(settings.value("hide_scrollbars",false).toBool());
-    viewer.setCache(settings.value("enable_cache",false).toBool(), settings.value("cache_size_megabytes",5).toInt());
-
-    settings.endGroup();
-
-    viewer.show();
 
     return app.exec();
 }
