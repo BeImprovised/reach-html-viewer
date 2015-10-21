@@ -1,4 +1,4 @@
-#include <QWebView>
+#include <QWebView> //#include <QtWebKitWidgets/QWebView>
 #include <QWebPage>
 #include <QWebFrame>
 #include <QVBoxLayout>
@@ -67,10 +67,11 @@ void MainView::setScrollbars(bool hide)
 
 void MainView::setCache(bool cache, int cacheSize)
 {
+
     if (cache)
     {
         QNetworkDiskCache *diskCache = new QNetworkDiskCache(this);
-        QString location = QDesktopServices::storageLocation(QDesktopServices::CacheLocation);
+        QString location = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
         diskCache->setCacheDirectory(location);
         diskCache->setMaximumCacheSize(cacheSize*1024*1024); //in MB's
         d->nam->setCache(diskCache);

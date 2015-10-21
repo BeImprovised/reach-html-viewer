@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QUrl>
-#include <QWSServer>
+//#include <QWSServer>
 
 #include "mainview.h"
 #include "systemdefs.h"

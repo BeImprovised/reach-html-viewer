@@ -6,9 +6,12 @@
 
 # this needs to stay in sync with the Makefile
 VERSION = 1.0.1
+QT      += widgets
+QT      += network webkit
+QT += webkitwidgets
+QT+= core gui webkit
 
-QT       += network webkit
-
+CONFIG += c++11
 TARGET = html-viewer
 TEMPLATE = app
 
